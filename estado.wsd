@@ -1,0 +1,14 @@
+@startuml estado
+[*] --> Provisional
+Provisional : do/ Calcular precio total
+Provisional --> Provisional : reservarOtra()
+Provisional --> Realizada : calcularPrecio() [ok]
+Provisional --> Cancelada : cancelar()
+Realizada --> Confirmada : verificar() [saldo>=precio]
+Realizada --> Denegada : verificar() [saldo<precio]
+Confirmada --> Cancelada : cancelar()
+Denegada --> Provisional : reintentar()
+Denegada --> Cancelada : desistir()
+Denegada --> [*]
+Cancelada --> [*]
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+abstract class Animal {
+    # alias: String
+    # nivelEnergia: int
+    + Animal(alias)
+    + {abstract} hacerSonido(): void
+    + moverse(): void
+    + dormir(): void
+    + comer(): void
+}
+
+class Perro {
+    - linaje: String
+    + Perro(alias, linaje)
+    + hacerSonido(): void
+    + traerObjeto(): void
+    + getLinaje(): String
+    + setLinaje(linaje: String): void
+}
+
+class Gato {
+    - tonoPelaje: String
+    + Gato(alias, tonoPelaje)
+    + hacerSonido(): void
+    + rasgunar(): void
+    + getTonoPelaje(): String
+    + setTonoPelaje(tonoPelaje: String): void
+}
+
+class Pajaro {
+    - dimensionAlar: double
+    + Pajaro(alias, dimensionAlar)
+    + hacerSonido(): void
+    + volar(): void
+    + getDimensionAlar(): double
+    + setDimensionAlar(dimensionAlar: double): void
+}
+
+Animal <|-- Perro
+Animal <|-- Gato
+Animal <|-- Pajaro
+@enduml
